@@ -4,7 +4,7 @@
   }
 
   stage('Say ECHO') {
-    sh "echo 21"
+    sh "echo 22"
   }
 }
         
