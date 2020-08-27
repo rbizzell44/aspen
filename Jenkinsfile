@@ -3,8 +3,8 @@
     git 'https://github.com/rbizzell44/aspen.git'
   }
 
-  stage('Say Hello') {
-    sh "echo hello 2"
+  stage('Say ECHO') {
+    sh "echo"
   }
 }
         
