@@ -1,21 +1,20 @@
  node {
-  stage('Checkout') {
-    git 'https://github.com/rbizzell44/aspen.git'
-  }
+    stage('Checkout') {
+     git 'https://github.com/rbizzell44/aspen.git'
+    }
 
-  stage('Say ECHO') {
+    stage('Say ECHO') {
     sh "echo 23"
-  }
-}
+    }
+
         
-  stage('Set Terraform path') {
+    stage('Set Terraform path') {
   	 def tfHome = tool name: 'Terraform'
      env.PATH = "${tfHome}:${env.PATH}"
      sh 'terraform -version'
 
-  	}
+    }
   	
 
-    
-
+}
 
