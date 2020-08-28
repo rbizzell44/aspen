@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket = "aspen-benchmark-bucket"
+    bucket = "cuit-terraform-project"
     prefix = "create/instance"
   }
 }
