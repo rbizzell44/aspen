@@ -19,7 +19,7 @@ resource "google_compute_instance" "default" {
   }
 
   network_interface {
-    network = "default"
+    network = "aspen-vpc"
 
     access_config {
       // Ephemeral IP
