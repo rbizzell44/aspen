@@ -11,7 +11,7 @@ resource  "google_compute_instance" "aspen-instance" {
   }
 
   network_interface {
-    network = "default"
+    network = "google_compute_network.default.name"
 
     }
 
