@@ -26,7 +26,7 @@
       dir('dev') {
       sh 'terraform init -reconfigure'
       sh 'terraform plan -out=plan'
-      sh 'terraform destroy -auot-approve'
+      sh 'terraform destroy -auto-approve'
       //sh 'terraform apply plan'
 
     }
