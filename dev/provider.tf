@@ -1,7 +1,7 @@
 provider "google-beta" {
-  version = "~> 3.0"
+  version = "~> 2.0"
 }
 
 provider "google" {
-  version = "~> 3.0"
+  version = "~> 2.0"
 }
