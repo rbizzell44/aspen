@@ -11,10 +11,7 @@ resource  "google_compute_instance" "aspen-instance" {
   }
 
   network_interface {
-    subnetwork = "google_compute_subnetwork.default.name"
-    address    = "10.150.0.0/20"
 
-    }
-
+    network = "default"
   }
-
+}
