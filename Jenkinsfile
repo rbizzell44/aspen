@@ -6,6 +6,7 @@
     environment {
     	// Service Account to execute Terraform Code
     	SERVICE_ACCOUNT = credentials('cuit-terraform-project')
+    	GOOGLE_PROJECT_ID = 'cuit-terraform-project'
     }
 
     stage('Say ECHO') {
@@ -18,7 +19,7 @@
      env.PATH = "${tfHome}:${env.PATH}"
      sh 'terraform -version'
      sh 'echo $SERVICE_ACCOUNT'
-
+     sh 'echo $GOOGLE_PROJECT_ID'
     }
   	
     stage('Provision infrastructure') {
