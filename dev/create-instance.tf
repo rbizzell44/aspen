@@ -6,15 +6,14 @@ resource  "google_compute_instance" "aspen-instance" {
 
   boot_disk {
     initialize_params {
-      image = "windows-cloud/windows-2019-core "
+      image = "windows-cloud/windows-2019"
     }
   }
 
   network_interface {
     network = "default"
-    access_config {
-      // Include this section to give the VM an external ip address
+
     }
 
   }
-}
+
