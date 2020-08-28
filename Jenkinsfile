@@ -3,6 +3,11 @@
      git 'https://github.com/rbizzell44/aspen.git'
     }
 
+    environment {
+    	// Service Account to execute Terraform Code
+    	SERVICE_ACCOUNT = credentials('cuit-terraform-project')
+    }
+
     stage('Say ECHO') {
     sh "echo 23"
     }
@@ -12,6 +17,7 @@
   	 def tfHome = tool name: 'Terraform'
      env.PATH = "${tfHome}:${env.PATH}"
      sh 'terraform -version'
+     sh 'echo $SERVICE_ACCOUNT'
 
     }
   	
