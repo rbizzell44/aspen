@@ -9,7 +9,7 @@
     }
 
     stage('Say ECHO') {
-    sh "echo 23"
+    sh "echo 24"
     }
 
         
