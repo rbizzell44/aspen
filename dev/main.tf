@@ -11,7 +11,7 @@ resource  "google_compute_instance" "default" {
 
   network_interface {
 
-    network = "gogole_compute_network.vpc_network.aspen-vpc"
+    network = "aspen-vpc"
 
   }
 
