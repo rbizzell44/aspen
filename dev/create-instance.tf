@@ -12,7 +12,8 @@ resource  "google_compute_instance" "default" {
 
   network_interface {
 
-    network = "custom"
+    network = "cuit-vpc-test"
+    
 
   }
 }
