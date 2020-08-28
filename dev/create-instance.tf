@@ -1,4 +1,4 @@
-resource  "google_compute_instance" "aspen-instance" {
+resource  "google_compute_instance" "default" {
   name = "aspen-test"
   machine_type = "f1-micro"
   zone = "us-east4-c"
@@ -13,6 +13,6 @@ resource  "google_compute_instance" "aspen-instance" {
   network_interface {
 
     network = "default"
-    subnetwork = "default"
+
   }
 }
