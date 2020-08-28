@@ -22,7 +22,7 @@
     }
   	
     stage('Provision infrastructure') {
-      dir('dev')
+      dir('dev') {
       sh 'terraform init'
       sh 'terraform plan -out=plan'
 
