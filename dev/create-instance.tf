@@ -1,5 +1,5 @@
-resource  "google_compute_instance" "default" {
-  name = "virtual-machine-from-terraform"
+resource  "google_compute_instance" "aspen-instance" {
+  name = "aspen-test"
   machine_type = "f1-micro"
   zone = "us-east4-c"
 
