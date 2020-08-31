@@ -42,7 +42,7 @@
     }
 
     stage('Terraform plan') {
-    	sh 'terraform plan -out=dev-plan'
+    	sh 'terraform plan -out=plan'
     }
     
 
