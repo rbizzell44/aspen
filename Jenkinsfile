@@ -9,12 +9,8 @@
     	GOOGLE_PROJECT_ID = 'cuit-terraform-project'
     }
 
-    stage('Say echo') {
-    sh "echo 24"
     
-    }
 
-        
     stage('Set Terraform path') {
   	 def tfHome = tool name: 'Terraform'
      env.PATH = "${tfHome}:${env.PATH}"
