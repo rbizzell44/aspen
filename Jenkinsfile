@@ -26,25 +26,12 @@
   	
     stage('Provision infrastructure') {
       dir('dev') {
-      //sh 'terraform init -reconfigure'
-     // sh 'terraform validate'
-      //sh 'terraform plan -out=plan'
+      sh 'terraform init -reconfigure'
+      sh 'terraform validate'
+      sh 'terraform plan -out=plan'
      // sh 'terraform destroy -auto-approve'
-      //sh 'terraform apply plan'
+      sh 'terraform apply plan'
     }  
-
-    stage('Terraform init') {
-      sh 'terraform init -reconfigure'  
-    }
-
-    stage('Terraform validate') {
-    	sh 'terraform validate'
-    }
-
-    stage('Terraform plan') {
-    	sh 'terraform plan -out=plan'
-    }
-    
 
     }
 }
