@@ -35,7 +35,7 @@
       }
     }
   
-    stage('Terraform Validate'){
+    stage('Terraform Validate') {
        dir('dev') {
        sh 'terraform validate'
        }
@@ -53,5 +53,4 @@
       }
 
     }
-}
-}
+}    
