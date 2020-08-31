@@ -11,6 +11,7 @@
 
     stage('Say echo') {
     sh "echo 24"
+    
     }
 
         
@@ -20,6 +21,7 @@
      sh 'terraform -version'
      sh 'echo $SERVICE_ACCOUNT'
      sh 'echo $GOOGLE_PROJECT_ID'
+    
     }
   	
     stage('Provision infrastructure') {
@@ -47,4 +49,4 @@
     }
 }
 
-}
+
