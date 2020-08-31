@@ -20,16 +20,38 @@
     
     }
   	
-    stage('Provision infrastructure') {
-      dir('dev') {
-      sh 'terraform init -reconfigure'
-      sh 'terraform validate'
-      sh 'terraform plan -out=plan'
+    //stage('Provision infrastructure') {
+     // dir('dev') {
+     // sh 'terraform init -reconfigure'
+     // sh 'terraform validate'
+      //sh 'terraform plan -out=plan'
      // sh 'terraform destroy -auto-approve'
-      sh 'terraform apply plan'
-    }  
+     // sh 'terraform apply plan'
+    //}  
+
+    stage('Terraform Init') {
+      dir('dev') {
+      sh 'terraform init -reconfigure'	
+      }
+    }
+  
+    stage('Terraform Validate'){
+       dir('dev') {
+       sh 'terraform validate'
+       }
+    }
+   
+    stage('Terraform Plan') {
+      dir('dev') {
+      sh 'terraform plan -out=plan'
+      }
+    }
+
+    stage('Terraform Apply') {
+      dir('dev'){
+      sh 'terraform apply plan'	
+      }
 
     }
 }
-
-
+}
