@@ -20,15 +20,6 @@
     
     }
   	
-    //stage('Provision infrastructure') {
-     // dir('dev') {
-     // sh 'terraform init -reconfigure'
-     // sh 'terraform validate'
-      //sh 'terraform plan -out=plan'
-     // sh 'terraform destroy -auto-approve'
-     // sh 'terraform apply plan'
-    //}  
-
     stage('Terraform Init') {
       dir('dev') {
       sh 'terraform init -reconfigure'	
@@ -47,6 +38,12 @@
       }
     }
 
+    stage('Run Pytest') {
+      dir('test') {
+      sh ' echo pytest'	
+      }
+
+    }
     stage('Terraform Apply') {
       dir('dev'){
       sh 'terraform apply plan'	
