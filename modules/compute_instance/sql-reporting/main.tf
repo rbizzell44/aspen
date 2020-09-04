@@ -33,11 +33,11 @@ resource "google_compute_instance" "default" {
   }
 
   // Disks
-  attached_disk { source = "${google_compute_disk.disk-2.self_link}" }
-  attached_disk { source = "${google_compute_disk.disk-3.self_link}" }
-  attached_disk { source = "${google_compute_disk.disk-4.self_link}" }
-  attached_disk { source = "${google_compute_disk.disk-5.self_link}" }
-  attached_disk { source = "${google_compute_disk.disk-6.self_link}" }
+  attached_disk  { source =  google_compute_disk.disk-2.self_link }
+  attached_disk  { source =  google_compute_disk.disk-3.self_link }
+  attached_disk  { source =  google_compute_disk.disk-4.self_link }
+  attached_disk  { source =  google_compute_disk.disk-5.self_link }
+  attached_disk  { source =  google_compute_disk.disk-6.self_link }
 }
 
 resource "google_compute_disk" "disk-2" {
