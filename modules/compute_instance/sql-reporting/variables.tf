@@ -33,13 +33,13 @@ variable env_initials {
 
 variable target_tags {
   description = "Tag added to instances for firewall and networking."
-  type        = "list"
+  type        = list
   default     = []
 }
 
 variable labels {
   description = "Map of labels to be used on all instances"
-  type        = "map"
+  type        = map
 }
 
 
@@ -64,7 +64,7 @@ variable bucketstore_name {
 }
 
 variable addomain {
-  type    = "string"
+  type    = string
   default = "admi.com"
 }
 
