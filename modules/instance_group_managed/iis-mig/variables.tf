@@ -84,14 +84,17 @@ variable name {
 
 variable stack_initials {
   description = "Initials of stack"
+  default = "dev"
 }
 
 variable app_initials {
   description = "Application initials of application"
+  default = "dev"
 }
 
 variable env_initials {
   description = "Environment initials of stack"
+  default = "dev"
 }
 
 variable target_size {

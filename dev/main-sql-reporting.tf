@@ -38,15 +38,15 @@ module "compute-instance-sql-reporting-1-us-central1" {
     appname = "${var.bu_prefix}"
   }
 
-  metadata        = {
-    windows-startup-script-url = "gs://${module.gcs_bucket_sql_reporting_uscentral1.bucket_name}/ssrs-boot.ps1"
-    bucketstore = "${module.gcs_bucket_sql_reporting_uscentral1.bucket_name}"
-    addomain = "${var.addomain}"
-    addomainou = "${var.adDomianOU}"
-    appenv= "${var.bu_prefix}"
+ // metadata        = {
+ //   windows-startup-script-url = "gs://${module.gcs_bucket_sql_reporting_uscentral1.bucket_name}/ssrs-boot.ps1"
+ //   bucketstore = "${module.gcs_bucket_sql_reporting_uscentral1.bucket_name}"
+ //   addomain = "${var.addomain}"
+ //   addomainou = "${var.adDomianOU}"
+ //   appenv= "${var.bu_prefix}"
 
   }
-  service_account_email = "${module.gcp_service_account_sql_reporting.service_account_email}"
+  service_account_email = "cuit-projectfactory-1234@cuit-terraform-project.iam.gserviceaccount.com"
 
   subnetwork            = "${var.svpc-subnetwork}"
   subnetwork_project    = "${var.customer_identifier_prefix}-${var.svpc-project}"
