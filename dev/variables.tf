@@ -34,6 +34,11 @@ variable "env_prefix" {
   default = "dev"
 }
 
+variable " region" {
+  type = string
+  default = "us-central1"
+}
+
 variable "env_envcode" {
   type = string
   default = "d20"

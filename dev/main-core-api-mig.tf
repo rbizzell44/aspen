@@ -19,18 +19,18 @@ module "managed-instance-group-core-api-us-central1" {
   disk_size_gb_2        = 120
   disk_size_gb_3        = 120
 
-  service_account_email = "${module.gcp_service_account_core_api.service_account_email}"
-  healing_delay         = 600
-  cooldown_period       = 6000
+ // service_account_email = "${module.gcp_service_account_core_api.service_account_email}"
+ // healing_delay         = 600
+//  cooldown_period       = 6000
 
-  metadata        = {
-    windows-startup-script-url = "gs://${module.gcs_bucket_core_api_uscentral1.bucket_name}/core-api-boot.ps1"
-    windows-shutdown-script-url = "gs://${module.gcs_bucket_core_api_uscentral1.bucket_name}/core-api-shutdown.ps1"
-    bucketstore = "${module.gcs_bucket_core_api_uscentral1.bucket_name}"
+ // metadata        = {
+ //   windows-startup-script-url = "gs://${module.gcs_bucket_core_api_uscentral1.bucket_name}/core-api-boot.ps1"
+  //  windows-shutdown-script-url = "gs://${module.gcs_bucket_core_api_uscentral1.bucket_name}/core-api-shutdown.ps1"
+  //  bucketstore = "${module.gcs_bucket_core_api_uscentral1.bucket_name}"
 
-    addomain   =  var.addomain
-    addomainou =  var.adDomianOU
-    appenv     =  var.env_appsettings
+    //addomain   =  var.addomain
+   // addomainou =  var.adDomianOU
+   // appenv     =  var.env_appsettings
   }
 
   target_tags           = ["network-tag", "firewall-tag"]
