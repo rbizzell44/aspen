@@ -9,6 +9,23 @@ module "managed-instance-group-core-api-us-central1" {
   //compute_image = "${data.google_compute_image.latest_image.self_link}"
   compute_image = var.master_image
 
+  // Autohealing
+  interval_check = 300
+  timeout_period = 300
+  healthy_threshold = 2
+  unhealthy_threshold = 3
+
+  health_check_request_path = "/index.html"
+
+  // Autoscaling
+  autoscaling = true
+  min_replicas = 2
+  max_replicas = 4
+  autoscaling_cpu = 0.75
+
+
+
+
   machine_type = "custom-8-32768"
   //"custom-2-8192"
   region = var.region
@@ -36,18 +53,5 @@ module "managed-instance-group-core-api-us-central1" {
 
 
 
-    // Autohealing
-    interval_check = 300
-    timeout_period = 300
-    healthy_threshold = 2
-    unhealthy_threshold = 3
-
-    health_check_request_path = "/index.html"
-
-    // Autoscaling
-    autoscaling = true
-    min_replicas = 2
-    max_replicas = 4
-    autoscaling_cpu = 0.75
   }
 }
