@@ -2,72 +2,72 @@
 
 variable "master_image" {
   description = "defines the master image name"
-  type = "string"
+  type = string
   default = "windows-server-2019-dc-v20200609"
 }
 
-variable "bu_prefix" {
-  type = "string"
-}
+//variable "bu_prefix" {
+//  type  "string
+//}
 
 variable "env_level" {
   description = "prod vs nonprod"
-  type = "string"
+  type = string
   default = "nprod"
 }
 
 variable "env_appsettings" {
   description = "Variable required by application to note what .NET environment settings file should be used"
-  type = "string"
+  type = string
   default = "GCPDEV"
 }
 
 variable "env_appcode" {
   description = "Abbreviation of Application Stack"
-  type = "string"
+  type = string
   default = "epm"
 }
 
 variable "env_prefix" {
   description = "Application release level abbreviation used for name generation"
-  type = "string"
+  type = string
   default = "dev"
 }
 
 variable "env_envcode" {
-  type = "string"
+  type = string
   default = "d20"
 }
 
 variable "project_postfix" {
-  type = "string"
+  type = string
   default = "epms-nprod-dev-apptier"
 }
 
 //network
 variable "svpc-project" {
-  type = "string"
+  type = string
   default = "ss-nprod-svpc"
 }
 
 variable "svpc-project-networkname" {
-  type = "string"
+  type = string
   default = "ss-nprod-svpc-vpc"
 }
 
 variable "svpc-subnetwork" {
-  type = "string"
+  type = string
   default = "nonprod-apps-cidr-usc1"
 }
 
 //metadata
 
 variable "addomain" {
-  type = "string"
+  type = string
   default="admi.com"
 }
 
 variable "adDomianOU" {
-  type = "string"
+  type = string
   default = "OU=nonprod,OU=servers-GCP,DC=admi,DC=com"
 }
