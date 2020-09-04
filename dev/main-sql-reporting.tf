@@ -16,6 +16,7 @@
 module "compute-instance-sql-reporting-1-us-central1" {
   source     = "../modules/compute_instance/sql-reporting"
   project_id = "${var.customer_identifier_prefix}-${var.project_postfix}"
+  service_account_email = "cuit-projectfactory-1234@cuit-terraform-project.iam.gserviceaccount.com"
 
   // Instance Properties
   //compute_image = data.google_compute_image.latest_image.self_link
