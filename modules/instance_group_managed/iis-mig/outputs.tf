@@ -1,6 +1,6 @@
 output name {
   description = "Name of the managed instance group and related resources, like the instance template."
-  value       = "${var.name}"
+  value       = var.name
 }
 
 //output instance_group {
