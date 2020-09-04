@@ -7,11 +7,11 @@ module "managed-instance-group-core-api-us-central1" {
   // Instance Template
   name                  = "managed-${var.env_prefix}-core-api-${var.region}"
   //compute_image = "${data.google_compute_image.latest_image.self_link}"
-  compute_image         = "${var.master_image}"
+  compute_image         = var.master_image
 
   machine_type          = "custom-8-32768" //"custom-2-8192"
-  region                = "${var.region}"
-  subnetwork            = "${var.svpc-subnetwork}"
+  region                = var.region
+  subnetwork            = var.svpc-subnetwork
   subnetwork_project    = "${var.customer_identifier_prefix}-${var.svpc-project}"
 
   disk_type             = "pd-ssd"
@@ -28,22 +28,22 @@ module "managed-instance-group-core-api-us-central1" {
     windows-shutdown-script-url = "gs://${module.gcs_bucket_core_api_uscentral1.bucket_name}/core-api-shutdown.ps1"
     bucketstore = "${module.gcs_bucket_core_api_uscentral1.bucket_name}"
 
-    addomain = "${var.addomain}"
-    addomainou = "${var.adDomianOU}"
-    appenv= "${var.env_appsettings}"
+    addomain   =  var.addomain
+    addomainou =  var.adDomianOU
+    appenv     =  var.env_appsettings
   }
 
   target_tags           = ["network-tag", "firewall-tag"]
 
   labels = {
-    env     = "${var.env_prefix}"
-    region  = "${var.region}"
+    env     = var.env_prefix
+    region  = var.region
     stack   = "core-api"
   }
 
   // Instance Manager
-  env_initials   = "${var.env_envcode}"
-  app_initials   = "${var.env_appcode}"
+  env_initials   = var.env_envcode
+  app_initials   = var.env_appcode
   stack_initials = "api"
   target_size    = 2
 
