@@ -46,7 +46,7 @@ module "compute-instance-sql-reporting-1-us-central1" {
  //   appenv= "${var.bu_prefix}"
 
   }
-  service_account_email = "cuit-projectfactory-1234@cuit-terraform-project.iam.gserviceaccount.com"
+  
 
   subnetwork            = "${var.svpc-subnetwork}"
   subnetwork_project    = "${var.customer_identifier_prefix}-${var.svpc-project}"
