@@ -25,8 +25,8 @@ data "google_compute_network" "network-project" {
 
 data "google_compute_subnetwork" "subnetwork-project" {
   project = var.network_project
-  name    = var.subnetwork}"
-  region  = "${var.region}"
+  name    = var.subnetwork
+  region  = var.region
 }
 
 
