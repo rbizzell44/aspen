@@ -76,6 +76,3 @@ variable "customer_identifier_prefix" {
   type = string
 }
 
-variable "region" {
-  default = us-central1
-}
