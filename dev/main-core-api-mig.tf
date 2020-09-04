@@ -19,6 +19,8 @@ module "managed-instance-group-core-api-us-central1" {
   disk_size_gb_2        = 120
   disk_size_gb_3        = 120
 
+  target_tags     = ["network-tag", "firewall-tag"]
+
  // service_account_email = "${module.gcp_service_account_core_api.service_account_email}"
  // healing_delay         = 600
 //  cooldown_period       = 6000
@@ -33,7 +35,7 @@ module "managed-instance-group-core-api-us-central1" {
    // appenv     =  var.env_appsettings
   }
 
-  target_tags           = ["network-tag", "firewall-tag"]
+
 
   labels = {
     env     = var.env_prefix
