@@ -16,15 +16,15 @@ variable "storage_class" {
 }
 
 variable "project_id" {
-  type = "string"
+  type = string
 }
 
 variable "sa_email" {
-  type = "string"
+  type = string
 }
 
 variable "role" {
-  type = "string"
+  type = string
 }
 
 variable "force_destroy_property" {
@@ -33,6 +33,6 @@ variable "force_destroy_property" {
 
 variable labels {
   description = "Map of labels to be used on all instances"
-  type        = "map"
+  type        = map
   default     = {}
 }
