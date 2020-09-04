@@ -4,11 +4,11 @@ variable "sa_display_name" {
 }
 
 variable "account_id" {
-  type = "string"
+  type = string
 }
 
 variable "project_id" {
-  type = "string"
+  type = string
 }
 
 // Uncomment below to private key for the Service Account
