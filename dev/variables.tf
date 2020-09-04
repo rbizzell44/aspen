@@ -71,3 +71,7 @@ variable "adDomianOU" {
   type = string
   default = "OU=nonprod,OU=servers-GCP,DC=admi,DC=com"
 }
+
+variable "customer_identifier_prefix" {
+  type = string
+}

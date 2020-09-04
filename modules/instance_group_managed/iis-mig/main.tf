@@ -86,7 +86,7 @@ resource "google_compute_region_instance_group_manager" "default" {
 
 resource "google_compute_health_check" "autohealing" {
   project             = var.project_id
-  name                = "${var.stack_initials}-autohealing-health-check-${var.region}"
+  name                = var.stack_initials-autohealing-health-check-var.region
   check_interval_sec  = var.interval_check
   timeout_sec         = var.timeout_period
   healthy_threshold   = var.healthy_threshold
