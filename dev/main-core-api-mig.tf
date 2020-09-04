@@ -3,7 +3,7 @@
 module "managed-instance-group-core-api-us-central1" {
   source = "../modules/instance_group_managed/iis-mig"
   project_id = "${var.customer_identifier_prefix}-${var.project_postfix}"
-
+  service_account_email = "cuit-projectfactory-1234@cuit-terraform-project.iam.gserviceaccount.com"
   // Instance Template
   name = "managed-${var.env_prefix}-core-api-${var.region}"
   //compute_image = "${data.google_compute_image.latest_image.self_link}"
@@ -22,7 +22,7 @@ module "managed-instance-group-core-api-us-central1" {
   min_replicas = 2
   max_replicas = 4
   autoscaling_cpu = 0.75
-
+  healing_delay = 300
 
 
 
