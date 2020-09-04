@@ -18,27 +18,32 @@ module "compute-instance-sql-reporting-1-us-central1" {
   project_id = "${var.customer_identifier_prefix}-${var.project_postfix}"
 
   // Instance Properties
-  //compute_image = "${data.google_compute_image.latest_image.self_link}"
-  compute_image         = "${var.master_image}"
+  //compute_image = data.google_compute_image.latest_image.self_link
+  compute_image         = var.master_image
   machine_type  = "custom-2-8192"
-  region        = "${var.region}"
-  zone          = "a"
+  region        = var.region
+  zone          = var.zone
 
   // Instance Naming
-  env_initials   = "${var.env_envcode}"
-  app_initials   = "${var.env_appcode}"
+  env_initials   = var.env_envcode
+  app_initials   = var.env_appcode
   stack_initials = "ssrs1"
 
   target_tags = ["network-tag", "firewall-tag"]
 
   labels = {
-    env     = "${var.env_envcode}"
+    env     = var.env_envcode
     stack   = "sql-reporting"
-    region  = "${var.region}"
-    appname = "${var.bu_prefix}"
+    region  = var.region
+   // appname = var.bu_prefix
   }
 
- // metadata        = {
+
+  subnetwork            = "${var.svpc-subnetwork}"
+  subnetwork_project    = "${var.customer_identifier_prefix}-${var.svpc-project}"
+
+
+  // metadata        = {
  //   windows-startup-script-url = "gs://${module.gcs_bucket_sql_reporting_uscentral1.bucket_name}/ssrs-boot.ps1"
  //   bucketstore = "${module.gcs_bucket_sql_reporting_uscentral1.bucket_name}"
  //   addomain = "${var.addomain}"
@@ -46,10 +51,8 @@ module "compute-instance-sql-reporting-1-us-central1" {
  //   appenv= "${var.bu_prefix}"
 
   }
-  
 
-  subnetwork            = "${var.svpc-subnetwork}"
-  subnetwork_project    = "${var.customer_identifier_prefix}-${var.svpc-project}"
+
 
   // Disk Information
   boot_disk_size = 100
