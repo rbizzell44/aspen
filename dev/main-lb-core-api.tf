@@ -52,9 +52,8 @@ module "gce-lb-http" {
         oauth2_client_id     = null
         oauth2_client_secret = null
       }
-    }
   }
-}
+
 
 
 module "load-balancer-core-api-uscentral1" {
