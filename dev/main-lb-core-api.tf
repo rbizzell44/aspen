@@ -1,7 +1,12 @@
 //Load Balancer - Core API
 
-###########################
-####Backend#######
+terraform {
+  backend "gcs" {
+    bucket      = "cuit-terraform-project"
+    prefix      = "terraform/state/resources/epms-nonprod-dev-apptier"
+    //    credentials = "../../../../deployment/credentials_key.json"
+  }
+}
 
 
 
