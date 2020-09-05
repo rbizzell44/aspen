@@ -6,9 +6,10 @@ variable "master_image" {
   default = "windows-server-2019-dc-v20200609"
 }
 
-//variable "bu_prefix" {
-//  type  "string
-//}
+variable "bu_prefix" {
+  type = string
+  default =  dev
+}
 
 variable "env_level" {
   description = "prod vs nonprod"
@@ -85,8 +86,5 @@ variable "service_port" {
 }
 
 variable "service_port_name" {
-
-}
-variable " bu_prefix" {
 
 }
