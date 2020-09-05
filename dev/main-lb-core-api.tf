@@ -13,16 +13,16 @@ module "gce-lb-http" {
       port                            = var.service_port
       port_name                       = var.service_port_name
       timeout_sec                     = 10
-      connection_draining_timeout_sec = null
+      connection_draining_timeout_sec = 30
       enable_cdn                      = false
       session_affinity                = null
-      affinity_cookie_ttl_sec         = null
+      affinity_cookie_ttl_sec         = 50
 
       health_check = {
-        check_interval_sec  = null
-        timeout_sec         = null
-        healthy_threshold   = null
-        unhealthy_threshold = null
+        check_interval_sec  = 60
+        timeout_sec         = 60
+        healthy_threshold   = 40
+        unhealthy_threshold = 80
         request_path        = "/"
         port                = var.service_port
         host                = null

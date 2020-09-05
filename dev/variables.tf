@@ -52,7 +52,7 @@ variable "project_postfix" {
 //network
 variable "svpc-project" {
   type = string
-  default = "ss-nprod-svpc"
+  default = "aspen-vpc"
 }
 
 variable "svpc-project-networkname" {
@@ -82,10 +82,11 @@ variable "customer_identifier_prefix" {
 }
 
 variable "service_port" {
+  default = 80
 }
 
 variable "service_port_name" {
-
+  default = "http"
 }
 
 variable "backends" {
