@@ -7,8 +7,8 @@ resource "google_compute_forwarding_rule" "default" {
   project               = var.project
   name                  = var.name
   region                = var.region
-  network               = data.google_compute_network.network-aspen-vpc.self_link
-  subnetwork            = data.google_compute_subnetwork.subnetwork-aspen.self_link
+  network               = "aspen-vpc"
+  subnetwork            = "aspen-vpc"
   load_balancing_scheme = "INTERNAL"
   backend_service       = google_compute_region_backend_service.default.self_link
   ip_protocol           = var.protocol
@@ -18,7 +18,7 @@ resource "google_compute_forwarding_rule" "default" {
 
 }
 
-data "google_compute_network" "network-aspen" {
+data "google_compute_network" "vpc-network" {
   project = "cuit-terraform-project"
   name    = "aspen-vpc"
 }
