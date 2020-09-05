@@ -54,23 +54,13 @@ module "gce-lb-http" {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
 module "load-balancer-core-api-uscentral1" {
   source            = "../modules/load_balancer"
   project           = "${var.customer_identifier_prefix}-${var.project_postfix}"
   stack             = "core-api"
   region            = var.region
   name              = "${var.bu_prefix}-${var.env_level}-${var.env_prefix}-lb-core-api-${var.region}"
+  name-hc           = "dev"
   ports             = ["443"]
   //protocol = [TCP UDP ESP AH SCTP ICMP]
 
