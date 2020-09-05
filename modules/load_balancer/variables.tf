@@ -53,6 +53,7 @@ variable "network" {
 variable "subnetwork" {
   description = "Self link of the VPC subnetwork in which to deploy the resources."
   type        = string
+  default     = "aspen-vpc"
 }
 
 variable "name-hc" {

@@ -19,8 +19,8 @@ resource "google_compute_forwarding_rule" "default" {
 }
 
 data "google_compute_network" "network-project" {
-  project = "${var.network_project}"
-  name    = "${var.network}"
+  project = "cuit-terraform-project"
+  name    = "aspen-vpc"
 }
 
 data "google_compute_subnetwork" "subnetwork-project" {
