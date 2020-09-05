@@ -1,4 +1,19 @@
 //Load Balancer - Core API
+
+###########################
+####Backend#######
+
+terraform {
+  backend "gcs" {
+    bucket      = "cuit-terraform-project"
+    prefix      = "terraform/state/resources/epms-nonprod-dev-apptier"
+    //    credentials = "../../../../deployment/credentials_key.json"
+  }
+}
+
+
+
+
 module "gce-lb-http" {
   source            = "GoogleCloudPlatform/lb-http/google"
   version           = "~> 3.1"
@@ -6,9 +21,8 @@ module "gce-lb-http" {
   project           = "my-project-id"
   target_tags       = ["module.mig1.target_tags", "module.mig2.target_tags"]
   description                     = null
-  protocol                        = "HTTP"
-  port                            = var.service_port
-  port_name                       = var.service_port_name
+
+
   timeout_sec                     = 10
   connection_draining_timeout_sec = null
   enable_cdn                      = false
