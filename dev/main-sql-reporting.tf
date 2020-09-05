@@ -22,7 +22,6 @@ module "compute-instance-sql-reporting-1-us-central1" {
   //compute_image = data.google_compute_image.latest_image.self_link
   compute_image         = var.master_image
   machine_type  = "custom-2-8192"
-  region        = var.region
   zone          = var.zone
 
   // Instance Naming
