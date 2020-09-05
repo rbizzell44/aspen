@@ -72,7 +72,7 @@ module "load-balancer-core-api-uscentral1" {
   ports             = ["443"]
   //protocol = [TCP UDP ESP AH SCTP ICMP]
 
-  static_ip_address = "10.129.31.221"
+  static_ip_address = "10.128.0.50"
 
   // Network and Instance Group
   instance-group-name = module.managed-instance-group-core-api-us-central1.name
