@@ -20,8 +20,6 @@ module "gce-lb-http" {
   target_tags = [
     "module.mig1.target_tags",
     "module.mig2.target_tags"]
-  timeout_sec = 10
-
 }
 
 
