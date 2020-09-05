@@ -70,7 +70,7 @@ module "load-balancer-core-api-uscentral1" {
   instance-group-name = module.managed-instance-group-core-api-us-central1.name
   network_project     = "${var.customer_identifier_prefix}-${var.svpc-project}"
   network             = "${var.customer_identifier_prefix}-${var.svpc-project-networkname}"
-  
+
 
   // Health Check
   http_health_check   = true

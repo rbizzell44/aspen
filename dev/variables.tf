@@ -60,10 +60,10 @@ variable "svpc-project-networkname" {
   default = "aspen-vpc"
 }
 
-//variable "svpc-subnetwork" {
-//  type = string
- // default = "aspen-vpc"
-//}
+variable "svpc-subnetwork" {
+ type = string
+ default = "aspen-vpc"
+}
 
 //metadata
 
