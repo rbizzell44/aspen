@@ -13,19 +13,19 @@ terraform {
 
 
 module "gce-lb-http" {
-  source            = "GoogleCloudPlatform/lb-http/google"
-  version           = "~> 3.1"
-  name              = "group-http-lb"
-  project           = "my-project-id"
-  target_tags       = ["module.mig1.target_tags", "module.mig2.target_tags"]
-  description                     = null
+  source = "GoogleCloudPlatform/lb-http/google"
+  version = "~> 3.1"
+  name = "group-http-lb"
+  project = "my-project-id"
+  target_tags = [
+    "module.mig1.target_tags",
+    "module.mig2.target_tags"]
+  timeout_sec = 10
+
+}
 
 
-  timeout_sec                     = 10
-  connection_draining_timeout_sec = null
-  enable_cdn                      = false
-  session_affinity                = null
-  affinity_cookie_ttl_sec         = null
+
   health_check = {
         check_interval_sec  = null
         timeout_sec         = null
@@ -35,7 +35,7 @@ module "gce-lb-http" {
         port                = var.service_port
         host                = null
         logging             = null
-      }
+  }
 
       log_config = {
         enable = true
@@ -64,7 +64,7 @@ module "gce-lb-http" {
         oauth2_client_id     = null
         oauth2_client_secret = null
       }
-  }
+  
 
 
 
