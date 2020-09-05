@@ -1,17 +1,5 @@
 //Load Balancer - Core API
 
-terraform {
-  backend "gcs" {
-    bucket      = "cuit-terraform-project"
-    prefix      = "terraform/state/resources/epms-nonprod-dev-apptier"
-    //    credentials = "../../../../deployment/credentials_key.json"
-  }
-}
-
-
-
-
-
 module "gce-lb-http" {
   source = "GoogleCloudPlatform/lb-http/google"
   version = "~> 4.2"

@@ -87,3 +87,11 @@ variable "service_port" {
 variable "service_port_name" {
 
 }
+
+variable "backends" {
+
+}
+
+variable "zone" {
+  default = us-central1
+}

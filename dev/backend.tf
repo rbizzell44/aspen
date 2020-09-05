@@ -1,10 +1,10 @@
  provider "google" {
-   version = "~> 3.0"
+   version = "~> 3.32"
  // credentials = "${file("../../../../deployment/credentials_key.json")}"
 }
 
  provider "google-beta" {
-   version = "~> 3.0"
+   version = "~> 3.32"
  // credentials = "${file("../../../../deployment/credentials_key.json")}"
 }
 
