@@ -64,7 +64,7 @@ module "load-balancer-core-api-uscentral1" {
   source            = "../modules/load_balancer"
   project           = "${var.customer_identifier_prefix}-${var.project_postfix}"
   stack             = "core-api"
-  region            = "${var.region}"
+  region            = var.region
   name              = "${var.bu_prefix}-${var.env_level}-${var.env_prefix}-lb-core-api-${var.region}"
   ports             = ["443"]
   //protocol = [TCP UDP ESP AH SCTP ICMP]
@@ -72,10 +72,10 @@ module "load-balancer-core-api-uscentral1" {
   static_ip_address = "10.129.31.221"
 
   // Network and Instance Group
-  instance-group-name = "${module.managed-instance-group-core-api-us-central1.name}"
+  instance-group-name = module.managed-instance-group-core-api-us-central1.name
   network_project     = "${var.customer_identifier_prefix}-${var.svpc-project}"
   network             = "${var.customer_identifier_prefix}-${var.svpc-project-networkname}"
-  subnetwork            = "${var.svpc-subnetwork}"
+  subnetwork            = var.svpc-subnetwork
 
   // Health Check
   http_health_check   = true
