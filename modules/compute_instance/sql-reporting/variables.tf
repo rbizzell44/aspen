@@ -8,9 +8,9 @@ variable compute_image {
   description = "Image used for the compute VMs"
 }
 
-variable region {
-  description = "Region for cloud resources"
-}
+//variable region {
+//  description = "Region for cloud resources"
+//}
 
 variable zone {
   description = "Zone for cloud resources"

@@ -44,7 +44,6 @@ resource "google_compute_disk" "disk-2" {
   project =  var.project_id
   name    = "${var.env_initials}${var.app_initials}${var.stack_initials}-${var.disk_name_2}"
   type    =  var.disk_type
-  region  =  var.region
   zone    =  var.zone
   size    =  var.disk_size_gb_2
   labels  =  var.labels
@@ -54,7 +53,6 @@ resource "google_compute_disk" "disk-3" {
   project =  var.project_id
   name    = "${var.env_initials}${var.app_initials}${var.stack_initials}-${var.disk_name_3}"
   type    =  var.disk_type
-  region  =  var.region
   zone    =  var.zone
   size    =  var.disk_size_gb_3
   labels  =  var.labels
@@ -64,7 +62,6 @@ resource "google_compute_disk" "disk-4" {
   project =  var.project_id
   name    = "${var.env_initials}${var.app_initials}${var.stack_initials}-${var.disk_name_4}"
   type    =  var.disk_type
-  region  =  var.region
   zone    =  var.zone
   size    =  var.disk_size_gb_4
   labels  =  var.labels
@@ -74,7 +71,6 @@ resource "google_compute_disk" "disk-5" {
   project =  var.project_id
   name    = "${var.env_initials}${var.app_initials}${var.stack_initials}-${var.disk_name_5}"
   type    =  var.disk_type
-  region  =  var.region
   zone    =  var.zone
   size    =  var.disk_size_gb_5
   labels  =  var.labels
@@ -84,7 +80,6 @@ resource "google_compute_disk" "disk-6" {
   project = var.project_id
   name    = "${var.env_initials}${var.app_initials}${var.stack_initials}-${var.disk_name_6}"
   type    = var.disk_type
-  region  = var.region
   zone    = var.zone
   size    = var.disk_size_gb_6
   labels  = var.labels
