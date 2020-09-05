@@ -93,5 +93,5 @@ variable "backends" {
 }
 
 variable "zone" {
-  default = us-central1
+  
 }
