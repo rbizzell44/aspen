@@ -5,7 +5,6 @@
 resource "google_compute_instance" "default" {
   project      = var.project_id
   name         = "${var.env_initials}${var.app_initials}${var.stack_initials}"
-  region       = var.region
   zone         = var.zone
   machine_type = var.machine_type
   tags         = var.target_tags
