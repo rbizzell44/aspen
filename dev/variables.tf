@@ -57,12 +57,12 @@ variable "svpc-project" {
 
 variable "svpc-project-networkname" {
   type = string
-  default = "ss-nprod-svpc-vpc"
+  default = "aspen-vpc"
 }
 
 variable "svpc-subnetwork" {
   type = string
-  default = "nonprod-apps-cidr-usc1"
+  default = "aspen-vpc"
 }
 
 //metadata
