@@ -18,15 +18,15 @@ resource "google_compute_forwarding_rule" "default" {
 
 }
 
-data "google_compute_network" "network-project" {
+data "google_compute_network" "network-aspen" {
   project = "cuit-terraform-project"
   name    = "aspen-vpc"
 }
 
-data "google_compute_subnetwork" "subnetwork-project" {
-  project = var.network_project
+data "google_compute_subnetwork" "subnetwork-aspen" {
+  project = "cuit-terraform-project"
   name    = var.subnetwork
-  region  = var.region
+  region  = us-central1
 }
 
 
