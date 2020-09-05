@@ -8,7 +8,6 @@ variable "master_image" {
 
 variable "bu_prefix" {
   type = string
-  default =  dev
 }
 
 variable "env_level" {
