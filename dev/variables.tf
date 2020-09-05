@@ -81,7 +81,7 @@ variable "customer_identifier_prefix" {
   type = string
 }
 
-variable "service.port" {
+variable "service_port" {
 }
 
 variable "service_port_name" {
