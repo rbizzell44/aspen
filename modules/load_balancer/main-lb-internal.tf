@@ -81,10 +81,10 @@ resource "google_compute_region_instance_group_manager" "aspen" {
 
   version {
     instance_template = "google_compute_instance_template.aspen.id"
+    name = "aspen-temp"
   }
 
-  target_pools = [google_compute_target_pool.aspen.id]
-  target_size = 2
+
   named_port {
     name = "custom"
     port = 8888
