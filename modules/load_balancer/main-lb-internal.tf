@@ -53,10 +53,17 @@ resource "google_compute_region_backend_service" "default" {
 
 data "google_compute_region_instance_group" "managed-instance-group" {
   project = var.project
-  name    = var.instance-group-name
-  region  = var.region
+  name    = "aspen-group"
+  region  = "us-central1"
 }
 
+resource "google_compute_region_instance_group_manager" "aspen-manager" {
+  base_instance_name = "aspen-base"
+  instance_template = "google_compute_instance_template.aspen-manager"
+  target_pools = [google_compute_target_pool.aspen-manger.self_link]
+  name = "aspen-template"
+  region = "us-central1"
+}
 
 # ------------------------------------------------------------------------------
 # CREATE HEALTH CHECK - ONE OF ´http´ OR ´tcp´
