@@ -53,7 +53,7 @@ resource "google_compute_region_backend_service" "default" {
 
 data "google_compute_region_instance_group" "managed-instance-group" {
   project = var.project
-  name    = "aspen-group"
+  name    = "aspen"
   region  = "us-central1"
 }
 
