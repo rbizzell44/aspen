@@ -51,11 +51,11 @@ resource "google_compute_region_backend_service" "default" {
   ]
 }
 
-data "google_compute_region_instance_group" "managed-instance-group" {
-  project = var.project
-  name    = "aspen"
-  region  = "us-central1"
-}
+//data "google_compute_region_instance_group" "managed-instance-group" {
+//  project = var.project
+//  name    = "aspen"
+//  region  = "us-central1"
+//}
 
 
 resource "google_compute_instance_template" "instance_template" {
@@ -81,6 +81,7 @@ resource "google_compute_region_instance_group_manager" "aspen" {
   version {
     instance_template = "google_compute_instance_template.aspen.id"
     name = "aspen-temp"
+
   }
 
 

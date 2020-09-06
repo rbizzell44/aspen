@@ -84,13 +84,7 @@ module "compute-instance-ncache-2-us-central1" {
     appname     = "${var.bu_prefix}"
   }
 
-  metadata        = {
-    windows-startup-script-url = "gs://${module.gcs_bucket_ncache_uscentral1.bucket_name}/ncache-boot.ps1"
-    bucketstore = "${module.gcs_bucket_ncache_uscentral1.bucket_name}"
-    addomain = "${var.addomain}"
-    addomainou = "${var.adDomianOU}"
-    appenv= "${var.env_appsettings}"
-  }
+
 
   bucketstore_name      = "${module.gcs_bucket_ncache_uscentral1.bucket_name}"
   service_account_email = "${module.gcp_service_account_ncache.service_account_email}"
