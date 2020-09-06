@@ -73,12 +73,22 @@ resource "google_compute_instance_template" "instance_template" {
 }
 
 
-resource "google_compute_region_instance_group_manager" "aspen-manager" {
+resource "google_compute_region_instance_group_manager" "aspen" {
   base_instance_name = "aspen-base"
   instance_template = "google_compute_instance_template.instance_template.self_link"
-  name = "aspen-manager"
+  name = "aspen-igm"
   region = "us-central1"
-  target_size = "1"
+
+  version {
+    instance_template = "google_compute_instance_template.aspen.id"
+  }
+
+  target_pools = [google_compute_target_pool.aspen.id]
+  target_size = 2
+  named_port {
+    name = "custom"
+    port = 8888
+  }
 }
 
 # ------------------------------------------------------------------------------
