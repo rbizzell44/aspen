@@ -8,7 +8,7 @@ resource "google_compute_forwarding_rule" "default" {
   name                  = var.name
   region                = var.region
   network               = "aspen-vpc2"
-  subnetwork            = "aspen-subnetwork2"
+  subnetwork            = "subnet-01"
   load_balancing_scheme = "INTERNAL"
   backend_service       = google_compute_region_backend_service.default.self_link
   ip_protocol           = var.protocol
@@ -18,18 +18,18 @@ resource "google_compute_forwarding_rule" "default" {
 
 }
 
-resource  "google_compute_network" "aspen-vpc2" {
+data "google_compute_network" "aspen2-network" {
   project = "cuit-terraform-project"
-  name    = "aspen-vpc2"
+  name    = "aspen2-vpc"
 }
 
 
-resource "google_compute_subnetwork" "subnetwork-aspen2" {
+data "google_compute_subnetwork" "aspen-subnetwork2" {
   project = "cuit-terraform-project"
-  name    = aspen-subnetwork2
-  region  = us-west1
-  ip_cidr_range = "10.138.0.0/20"
-  network = "google_compute_network.aspen-vpc2.id"
+  name    = subnetwork-01
+  region  = us-central1
+  ip_cidr_range = "10.10.10.0/24"
+  network = "google_compute_network.aspen2-vpc.id"
 }
 
 
