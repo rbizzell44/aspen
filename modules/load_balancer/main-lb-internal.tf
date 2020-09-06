@@ -78,7 +78,6 @@ resource "google_compute_region_instance_group_manager" "aspen-manager" {
   instance_template = "google_compute_instance_template.instance_template.id"
   name = "aspen-manager"
   region = "us-central1"
-  zone   = "us-central1-a"
   target_size = "1"
 }
 
