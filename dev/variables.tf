@@ -46,23 +46,23 @@ variable "env_envcode" {
 
 variable "project_postfix" {
   type = string
-  default = "epms-nprod-dev-apptier"
+  default = "cuit-terraform-project"
 }
 
 //network
 variable "svpc-project" {
   type = string
-  default = "aspen-vpc"
+  default = "aspen2-vpc"
 }
 
 variable "svpc-project-networkname" {
   type = string
-  default = "aspen-vpc"
+  default = "aspen2-vpc"
 }
 
 variable "svpc-subnetwork" {
  type = string
- default = "aspen-vpc"
+ default = "subnet01"
 }
 
 //metadata
