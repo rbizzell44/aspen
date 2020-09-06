@@ -58,7 +58,7 @@ data "google_compute_region_instance_group" "managed-instance-group" {
 }
 
 
-resource "google_compute_instance_template" "instance_template"{
+resource "google_compute_instance_template" "instance_template" {
   name_prefix = "instance-template-"
   machine_type = "n1-standard-1"
   region = "us-central1"
@@ -75,7 +75,7 @@ resource "google_compute_instance_template" "instance_template"{
 
 resource "google_compute_region_instance_group_manager" "aspen-manager" {
   base_instance_name = "aspen-base"
-  instance_template = "google_compute_instance_template.instance_template.id"
+  instance_template = "google_compute_instance_template.instance_template.self_link"
   name = "aspen-manager"
   region = "us-central1"
   target_size = "1"
