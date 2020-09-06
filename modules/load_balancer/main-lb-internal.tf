@@ -75,7 +75,6 @@ resource "google_compute_instance_template" "instance_template" {
 
 resource "google_compute_region_instance_group_manager" "aspen" {
   base_instance_name = "aspen-base"
-  instance_template = "google_compute_instance_template.instance_template.self_link"
   name = "aspen-igm"
   region = "us-central1"
 
