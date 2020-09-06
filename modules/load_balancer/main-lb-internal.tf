@@ -2,13 +2,22 @@
 # FORWARDING RULE
 # ------------------------------------------------------------------------------
 
+data "terraform_remote_state" "network" {
+  backend = "gcs"
+  config = {
+    bucket     = "cuit-terraform-project"
+    prefix     = "terraform/state/aspen-vpc"
+  }
+}
+
+
 resource "google_compute_forwarding_rule" "default" {
   provider              = google-beta
   project               = var.project
   name                  = var.name
   region                = var.region
-  network               = "aspen-vpc2"
-  subnetwork            = "subnet-01"
+  network               = data.terraform_remote_state.network.outputs.network_name
+  subnetwork            = data.terraform_remote_state.network.outputs.subnet_id
   load_balancing_scheme = "INTERNAL"
   backend_service       = google_compute_region_backend_service.default.self_link
   ip_protocol           = var.protocol
@@ -16,20 +25,6 @@ resource "google_compute_forwarding_rule" "default" {
   ip_address            = var.static_ip_address
   allow_global_access   = true
 
-}
-
-data "google_compute_network" "aspen2-network" {
-  project = "cuit-terraform-project"
-  name    = "aspen2-vpc"
-}
-
-
-data "google_compute_subnetwork" "aspen-subnetwork2" {
-  project = "cuit-terraform-project"
-  name    = subnet-01
-  region  = us-central1
-  ip_cidr_range = "10.10.10.0/24"
-  network = "google_compute_network.aspen2-vpc.id"
 }
 
 
