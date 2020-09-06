@@ -60,7 +60,6 @@ data "google_compute_region_instance_group" "managed-instance-group" {
 resource "google_compute_region_instance_group_manager" "aspen-manager" {
   base_instance_name = "aspen-base"
   instance_template = "google_compute_instance_template.aspen-manager"
-  target_pools = [google_compute_target_pool.aspen-manger.self_link]
   name = "aspen-template"
   region = "us-central1"
 }
