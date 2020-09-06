@@ -26,7 +26,7 @@ data "google_compute_network" "aspen2-network" {
 
 data "google_compute_subnetwork" "aspen-subnetwork2" {
   project = "cuit-terraform-project"
-  name    = subnetwork-01
+  name    = subnet-01
   region  = us-central1
   ip_cidr_range = "10.10.10.0/24"
   network = "google_compute_network.aspen2-vpc.id"
