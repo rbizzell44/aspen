@@ -57,11 +57,29 @@ data "google_compute_region_instance_group" "managed-instance-group" {
   region  = "us-central1"
 }
 
+
+resource "google_compute_instance_template" "instance_template"{
+  name_prefix = "instance-template-"
+  machine_type = "n1-standard-1"
+  region = "us-central1"
+
+  // boot disk
+  disk {
+    # ...
+  }
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+
 resource "google_compute_region_instance_group_manager" "aspen-manager" {
   base_instance_name = "aspen-base"
-  instance_template = "google_compute_instance_template.aspen-manager.self_link"
-  name = "aspen-template"
+  instance_template = "google_compute_instance_template.instance_template.id"
+  name = "aspen-manager"
   region = "us-central1"
+  zone   = "us-central1-a"
+  target_size = "1"
 }
 
 # ------------------------------------------------------------------------------
