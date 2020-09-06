@@ -42,34 +42,17 @@ resource "google_compute_region_backend_service" "default" {
   session_affinity = var.session_affinity
   timeout_sec      = 300
 
-  backend {
-    group = data.google_compute_region_instance_group.managed-instance-group.self_link
-  }
+
 
   health_checks = [
     google_compute_health_check.tcp.self_link
   ]
 }
 
-//data "google_compute_region_instance_group" "managed-instance-group" {
-//  project = var.project
-//  name    = "aspen"
-//  region  = "us-central1"
-//}
-
-
-resource "google_compute_instance_template" "instance_template" {
-  name_prefix = "instance-template-"
-  machine_type = "n1-standard-1"
-  region = "us-central1"
-
-  // boot disk
-  disk {
-    # ...
-  }
-  lifecycle {
-    create_before_destroy = true
-  }
+data "google_compute_region_instance_group" "managed-instance-group" {
+  project = var.project
+  name    = "aspen"
+  region  = "us-central1"
 }
 
 
@@ -90,6 +73,28 @@ resource "google_compute_region_instance_group_manager" "aspen" {
     port = 8888
   }
 }
+
+
+
+
+
+
+resource "google_compute_instance_template" "instance_template" {
+  name_prefix = "instance-template-"
+  machine_type = "n1-standard-1"
+  region = "us-central1"
+
+  // boot disk
+  disk {
+    # ...
+  }
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+
+
 
 # ------------------------------------------------------------------------------
 # CREATE HEALTH CHECK - ONE OF ´http´ OR ´tcp´
